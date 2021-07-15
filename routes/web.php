@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\BlogDataDynaController;
+use App\Http\Controllers\HomeDataDynaController;
+use App\Http\Controllers\PortfolioDataDynaController;
+use App\Models\BlogDataDyna;
 use App\Models\BlogStatic;
 use App\Models\ContactStatic;
 use App\Models\HomeDataDyna;
 use App\Models\HomeStatic;
+use App\Models\portfolioDataDyna;
 use App\Models\PortfolioStatic;
 use Illuminate\Support\Facades\Route;
 
@@ -21,17 +26,46 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $staticData= HomeStatic::all();
     $dynamiqueDataHome = HomeDataDyna::all();
-    return view('welcome', compact("staticData", "dynamiqueDataHome"));
+    return view('welcome', compact("staticData", 'dynamiqueDataHome'));
 });
 Route::get('/blog', function () {
     $DataBlogs= BlogStatic::all();
-    return view('pages.blog', compact("DataBlogs"));
+    $dynamiqueDataBlog= BlogDataDyna::all();
+    return view('pages.blog', compact("DataBlogs", 'dynamiqueDataBlog'));
 });
 Route::get('/portfolio', function () {
     $DataPortfolio= PortfolioStatic::all();
-    return view('pages.portfolio', compact("DataPortfolio"));
+    $dynamiqueDataPortfolio = portfolioDataDyna::all();
+    return view('pages.portfolio', compact("DataPortfolio", 'dynamiqueDataPortfolio'));
 });
 Route::get('/contact', function () {
     $DataContact= ContactStatic::all();
     return view('pages.contact', compact("DataContact"));
 });
+
+// HOME
+
+Route::get('/login', function () {
+    $ServicesHome = DB::select('SELECT * FROM home_data_dynas');
+    return view("pages.BackOffice.Homeback", compact('ServicesHome'));
+});
+route::post('/formHome', [HomeDataDynaController::class, 'store']);
+route::delete('/contenuHomeDelete/{id}', [HomeDataDynaController::class, 'destroy']);
+
+//BLOG
+Route::get('/BlogbackOffice', function () {
+    $ServicesBlog = DB::select('SELECT * FROM blog_data_dynas');
+    return view("pages.BackOffice.Blogback", compact('ServicesBlog'));
+});
+Route::post('/formBlog', [BlogDataDynaController::class, 'store']);
+Route::delete('/contenuBlogDelete/{id}', [BlogDataDynaController::class, 'destroy']);
+
+
+// PORTFOLIO
+Route::get('/PortfoliobackOffice', function () {
+    $ServicesPortfolio = DB::select('SELECT * FROM portfolio_data_dynas');
+    return view("pages.BackOffice.Portfolioback", compact('ServicesPortfolio'));
+});
+
+Route::post('/formPortfolio', [PortfolioDataDynaController::class, 'store']);
+Route::delete('/contenuPortfolioDelete/{id}', [PortfolioDataDynaController::class, 'destroy']);

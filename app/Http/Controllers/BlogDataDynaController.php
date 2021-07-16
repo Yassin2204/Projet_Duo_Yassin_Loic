@@ -15,10 +15,10 @@ class BlogDataDynaController extends Controller
         $store -> save();
         return redirect('/BlogbackOffice');
     }
-    // public function show($id) {
-    //     $show = BlogDataDyna::find($id);
-    //     return view('/BlogbackOffice');
-    // }
+    public function show($id) {
+        $show = BlogDataDyna::find($id);
+        return view('pages.BackOfficeShow.BlogBackShow', compact('show'));
+    }
     public function edit($id) 
     {
         $edit = BlogDataDyna::find($id);

@@ -25,6 +25,10 @@
                             <td>{{ $ServiceBlog->sous_titre }}</td>
                             <td>{{ $ServiceBlog->p1 }}</td>
                             <td>
+                                <a href="/contenuBlogShow/{{ $ServiceBlog->id }}">
+                                    <button class="btn btn-success text-white" type="submit">Show</button></a>
+                            </td>
+                            <td>
                                 <a href="/contenuBlogEdit/{{ $ServiceBlog->id }}">
                                     <button class="btn btn-primary text-white" type="submit">Edit</button>
                                 </a>

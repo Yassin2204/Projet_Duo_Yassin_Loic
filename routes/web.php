@@ -59,6 +59,7 @@ Route::get('/BlogbackOffice', function () {
     return view("pages.BackOffice.Blogback", compact('ServicesBlog'));
 });
 Route::post('/formBlog', [BlogDataDynaController::class, 'store']);
+Route::get('/contenuBlogShow/{id}', [BlogDataDynaController::class, 'show']);
 Route::get('/contenuBlogEdit/{id}', [BlogDataDynaController::class, 'edit']);
 Route::put('/contenuBlogUpdate/{id}', [BlogDataDynaController::class, 'update']);
 Route::delete('/contenuBlogDelete/{id}', [BlogDataDynaController::class, 'destroy']);

@@ -12,15 +12,16 @@
 
             <div class="main-menu" id="perfect-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a href="/">Home</a></li>
+                    <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
+                        <a href="/">Home</a>
+                    </li>
                     <li>
                         <a href="/blog">Blog </a>
                     </li>
                     <li>
                         <a href="/portfolio">Portfolio</a>                                
                     </li>
-                    <li>
+                    <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
                         <a href="/contact">Contact</a>
                     </li> 
                 </ul><!-- /.navbar-nav -->

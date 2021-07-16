@@ -20,8 +20,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                 
+                <div class="collapse navbar-collapse" id="navbarNav">              
                     <ul class="navbar-nav w-100 justify-content-center">
                         <li class="nav-item">
                             <a class="nav-link active text-light" aria-current="page" href="/login">Changer la page Home</a>
@@ -42,7 +41,7 @@
     @yield('content')
 
     <!-- le footer -->
-    <footer>
+    <footer class="fixed-bottom">
         <div class="card text-center bg-secondary">
             <div class="card-body">
                 <p class="card-text text-light">Projet Yassin - Loic</p>

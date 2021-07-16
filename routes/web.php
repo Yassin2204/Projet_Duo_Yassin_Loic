@@ -10,6 +10,7 @@ use App\Models\HomeDataDyna;
 use App\Models\HomeStatic;
 use App\Models\portfolioDataDyna;
 use App\Models\PortfolioStatic;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +59,8 @@ Route::get('/BlogbackOffice', function () {
     return view("pages.BackOffice.Blogback", compact('ServicesBlog'));
 });
 Route::post('/formBlog', [BlogDataDynaController::class, 'store']);
+Route::get('/contenuBlogEdit/{id}', [BlogDataDynaController::class, 'edit']);
+Route::put('/contenuBlogUpdate/{id}', [BlogDataDynaController::class, 'update']);
 Route::delete('/contenuBlogDelete/{id}', [BlogDataDynaController::class, 'destroy']);
 
 
@@ -68,4 +71,5 @@ Route::get('/PortfoliobackOffice', function () {
 });
 
 Route::post('/formPortfolio', [PortfolioDataDynaController::class, 'store']);
+
 Route::delete('/contenuPortfolioDelete/{id}', [PortfolioDataDynaController::class, 'destroy']);

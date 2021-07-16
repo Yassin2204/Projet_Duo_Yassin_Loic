@@ -21,9 +21,14 @@
                     @foreach ($ServicesBlog as $ServiceBlog)
                         <tr>
                             <th scope="row">{{ $ServiceBlog->id }}</th>
-                            <td>{{ $ServiceBlog->photo}}</td>
+                            <td>{{ $ServiceBlog->photo }}</td>
                             <td>{{ $ServiceBlog->sous_titre }}</td>
                             <td>{{ $ServiceBlog->p1 }}</td>
+                            <td>
+                                <a href="/contenuBlogEdit/{{ $ServiceBlog->id }}">
+                                    <button class="btn btn-primary text-white" type="submit">Edit</button>
+                                </a>
+                            </td>
                             <td>
                                 <form action="/contenuBlogDelete/{{ $ServiceBlog->id }}" method="POST">
                                     @csrf

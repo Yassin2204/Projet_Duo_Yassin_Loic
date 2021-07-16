@@ -15,6 +15,24 @@ class BlogDataDynaController extends Controller
         $store -> save();
         return redirect('/BlogbackOffice');
     }
+    // public function show($id) {
+    //     $show = BlogDataDyna::find($id);
+    //     return view('/BlogbackOffice');
+    // }
+    public function edit($id) 
+    {
+        $edit = BlogDataDyna::find($id);
+        return view('pages.BackOfficeEdit.BlogbackEdit', compact('edit'));
+    }
+    public function update(Request $request, $id) 
+    {
+        $update = BlogDataDyna::find($id);
+        $update->photo = $request->photo; 
+        $update->sous_titre = $request->sous_titre; 
+        $update->p1 = $request->p1; 
+        $update -> save();
+        return redirect('/BlogbackOffice');
+    }
     public function destroy($id){
         $destroy = BlogDataDyna::find($id);
         $destroy -> delete();

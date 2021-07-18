@@ -1,17 +1,17 @@
 @extends('template.back')
 @section('content')
     <div class="container mt-5">
-        <h3>Dérriere la Page Blog (EDIT)</h3>
+        <h3>Derriére la page Home (EDIT)</h3>
     </div>
 
     <main>
-        <div class="container rounded-3">
-            <table class="table mt-5 ">
+        <div class="container">
+            <table class="table mt-5">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Source image</th>
-                        <th scope="col">Titre de service</th>
+                        <th scope="col">Icon</th>
+                        <th scope="col">Sous titre</th>
                         <th scope="col">Paragraphe</th>
                         <th scope="col"></th>
                     </tr>
@@ -19,18 +19,14 @@
 
                 <tbody>
                     <tr>
-                        <form action="/contenuBlogUpdate/{{ $edit->id }}" method="POST">
+                        <form action="/contenuHomeUpdate/{{ $edit->id }}" method="POST">
                             @csrf
                             @method('PUT')
                             <th scope="row">{{ $edit->id }}</th>
                             <td>
-                                {{-- <select class="form-select mb-2" required name="photo"  aria-label="Default select example">
-                                    <option selected value="{{ $edit->photo }}">{{ $edit->photo }}</option>
-                                    <option value="portfolio-1.jpg">portfolio-1.jpg</option>
-                                </select> --}}
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" required value="{{ $edit->photo }}"
-                                        name="photo" id="exampleInputPassword1">
+                                    <input type="text" class="form-control" required value="{{ $edit->icone }}" name="icone"
+                                        id="exampleInputPassword1">
                                 </div>
                             </td>
                             <td>
@@ -41,7 +37,8 @@
                             </td>
                             <td>
                                 <div class="mb-3">
-                                    <textarea type="text" class="form-control" style="height: 200px" name="p1" id="exampleInputEmail1" required
+                                    <textarea type="text" class="form-control" style="height: 200px" name="p1"
+                                        id="exampleInputEmail1" required
                                         aria-describedby="emailHelp">{{ $edit->p1 }}</textarea>
                                 </div>
                             </td>

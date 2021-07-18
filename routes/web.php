@@ -50,8 +50,11 @@ Route::get('/login', function () {
     $ServicesHome = DB::select('SELECT * FROM home_data_dynas');
     return view("pages.BackOffice.Homeback", compact('ServicesHome'));
 });
-route::post('/formHome', [HomeDataDynaController::class, 'store']);
-route::delete('/contenuHomeDelete/{id}', [HomeDataDynaController::class, 'destroy']);
+Route::post('/formHome', [HomeDataDynaController::class, 'store']);
+Route::get('/contenuHomeShow/{id}', [HomeDataDynaController::class, 'show']);
+Route::get('/contenuHomeEdit/{id}', [HomeDataDynaController::class, 'edit']);
+Route::put('/contenuHomeUpdate/{id}', [HomeDataDynaController::class, 'update']);
+Route::delete('/contenuHomeDelete/{id}', [HomeDataDynaController::class, 'destroy']);
 
 //BLOG
 Route::get('/BlogbackOffice', function () {
@@ -70,7 +73,8 @@ Route::get('/PortfoliobackOffice', function () {
     $ServicesPortfolio = DB::select('SELECT * FROM portfolio_data_dynas');
     return view("pages.BackOffice.Portfolioback", compact('ServicesPortfolio'));
 });
-
 Route::post('/formPortfolio', [PortfolioDataDynaController::class, 'store']);
-
+Route::get('/contenuPortfolioShow/{id}', [PortfolioDataDynaController::class, 'show']);
+Route::get('/contenuPortfolioEdit/{id}', [PortfolioDataDynaController::class, 'edit']);
+Route::put('/contenuPortfolioUpdate/{id}', [PortfolioDataDynaController::class, 'update']);
 Route::delete('/contenuPortfolioDelete/{id}', [PortfolioDataDynaController::class, 'destroy']);

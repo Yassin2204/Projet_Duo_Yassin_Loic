@@ -29,7 +29,7 @@ class BlogDataDynaController extends Controller
         $update = BlogDataDyna::find($id);
         $update->photo = $request->photo; 
         $update->sous_titre = $request->sous_titre; 
-        $update->p1 = $request->p1; 
+        $update->p1 = $request->p1;
         $update -> save();
         return redirect('/BlogbackOffice');
     }

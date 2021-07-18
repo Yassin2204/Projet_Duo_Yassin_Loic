@@ -15,6 +15,8 @@
                         <th scope="col">Sous titre</th>
                         <th scope="col">Paragraphe</th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +26,15 @@
                             <td>{{ $ServiceHome->icone}}</td>
                             <td>{{ $ServiceHome->sous_titre }}</td>
                             <td>{{ $ServiceHome->p1 }}</td>
+                            <td>
+                                <a href="/contenuHomeShow/{{ $ServiceHome->id }}">
+                                    <button class="btn btn-success text-white" type="submit">Show</button></a>
+                            </td>
+                            <td>
+                                <a href="/contenuHomeEdit/{{ $ServiceHome->id }}">
+                                    <button class="btn btn-primary text-white" type="submit">Edit</button>
+                                </a>
+                            </td>
                             <td>
                                 <form action="/contenuHomeDelete/{{ $ServiceHome->id }}" method="POST">
                                     @csrf
@@ -40,7 +51,7 @@
 
 
     <section class="mt-5 mb-5">
-        <div class="container w-25 bg-primary p-5 rounded-3">
+        <div class="container w-25 bg-primary text-dark p-5 rounded-3">
             <form action="/formHome" method="POST">
                 @csrf
                 <div class="mb-3">

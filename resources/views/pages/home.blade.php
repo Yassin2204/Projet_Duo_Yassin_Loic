@@ -49,8 +49,5 @@
     @include('partial.main.homeContent')
     @include('partial.main.footer.footer')
     
-
-
-
 </body>
 </html>

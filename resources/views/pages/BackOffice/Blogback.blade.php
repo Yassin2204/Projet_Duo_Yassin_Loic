@@ -15,6 +15,8 @@
                         <th scope="col">Titre de service</th>
                         <th scope="col">Paragraphe</th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +51,7 @@
 
 
     <section class="mt-5 mb-5">
-        <div class="container w-25 bg-primary p-5 rounded-3">
+        <div class="container w-25 bg-primary text-dark p-5 rounded-3">
             <form action="/formBlog" method="POST">
                 @csrf
                 <label for="exampleInputPassword1" class="form-label text-white">Selectionnez votre image</label>
